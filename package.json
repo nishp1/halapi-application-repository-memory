@@ -1,0 +1,22 @@
+{
+  "name": "application-repository",
+  "description": "halapi-application-repository-memory ====================================",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nishp1/halapi-application-repository-memory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nishp1/halapi-application-repository-memory/issues"
+  },
+  "homepage": "https://github.com/nishp1/halapi-application-repository-memory",
+  "dependencies": {
+    "bluebird": "^2.2.2"
+  }
+}
