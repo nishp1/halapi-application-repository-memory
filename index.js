@@ -1,6 +1,7 @@
-var Application = require('../../../../dao/application'),
-    Page = require('../../../../dao/page'),
-    User = require('../../../../dao/User'),
+var Application = require('../../dao/application'),
+    Page = require('../../dao/page'),
+    User = require('../../dao/User'),
+    applications = require('./applications');
     Promise = require('bluebird');
 
 exports.register = function (server, options, next) {
@@ -11,8 +12,8 @@ exports.register = function (server, options, next) {
     server.method('applicationRepository.findAllApplications', function (start, limit) {
         var resolver = Promise.pending();
         var page = new Page({
-            items: [],
-            count: 0,
+            items: applications,
+            count: applications.length,
             start: start,
             limit: limit
         }, Application);
@@ -23,15 +24,15 @@ exports.register = function (server, options, next) {
 
     server.method('applicationRepository.findApplicationById', function (id) {
         var resolver = Promise.pending();
-        resolver.resolve(null);
+        resolver.resolve(applications[0]);
         return resolver.promise;
     });
 
     server.method('applicationRepository.termSearch', function (query, start, limit) {
         var resolver = Promise.pending();
         var page = new Page({
-            items: [],
-            count: 0,
+            items: applications,
+            count: applications.length,
             start: start,
             limit: limit
         }, Application);
